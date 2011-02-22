@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class JK_UserAuthorisation</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> JK_UserAuthorisation</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Represents authorisation from a user for a 3rd party application to use the Jabbakam API.</p>
+<p class="description"><p>For each user in your system, you will need to request authorisation (once) before using the API on behalf of that user.</p><p>After recieving authorisation for a user, you should store the token, for example in your user database table.</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../jabbakam/JK_RequestToken.html">JK_RequestToken</a></li>
+				<li><span class="field">see:</span> <a href="../jabbakam/Jabbakam.html#methodrequestAuthorisation">Jabbakam::requestAuthorisation()</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_jabbakam---core.php.html">/jabbakam/core.php</a> (line <span class="field">338</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																				<div class="method-definition">
+					<img src="../media/images/StaticMethod.png" alt=" "/>
+											static <span class="method-result"><a href="../jabbakam/JK_UserAuthorisation.html">object JK_UserAuthorisation</a></span>
+										<a href="#fromRequestToken" title="details" class="method-name">fromRequestToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$request_token</span>, [<span class="var-type">int|string</span>&nbsp;<span class="var-name">$user_id</span> = <span class="var-default">NULL</span>])
+									</div>
+																																												<div class="method-definition">
+					<img src="../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">JK_UserAuthorisation</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$secret_key</span>, [<span class="var-type">int|string</span>&nbsp;<span class="var-name">$user_id</span> = <span class="var-default">NULL</span>])
+									</div>
+																								<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#getKey" title="details" class="method-name">getKey</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">string</span>
+										<a href="#getSecretKey" title="details" class="method-name">getSecretKey</a>
+										()
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">mixed|null</span>
+										<a href="#getUserId" title="details" class="method-name">getUserId</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+													<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodfromRequestToken" id="fromRequestToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/StaticMethod.png" />
+		<span class="method-title">static fromRequestToken</span> (line <span class="line-number">378</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Fetches a access authorisation token after a request token has been granted authorisation by the user.</p>
+<p class="description"><p>This is the 3rd and final step of the OAuth authorisation process.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> instance</li>
+				<li><span class="field">see:</span> <a href="../jabbakam/Jabbakam.html#methodrequestAuthorisation">Jabbakam::requestAuthorisation()</a></li>
+				<li><span class="field">throws:</span> InvalidArgumentException If $request_token is NULL or not an instance of JK_RequestToken.</li>
+				<li><span class="field">throws:</span> Exception If unable to contact the API server.</li>
+				<li><span class="field">throws:</span> JK_Exception If Jabbakam is unable or unwilling to grant an access token, e.g. expired request token.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../jabbakam/JK_UserAuthorisation.html">object JK_UserAuthorisation</a></span>
+		<span class="method-name">
+			fromRequestToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$request_token</span>, [<span class="var-type">int|string</span>&nbsp;<span class="var-name">$user_id</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">object</span>
+				<span class="var-name">$request_token</span><span class="var-description">: Instance of JK_RequestToken</span>			</li>
+					<li>
+				<span class="var-type">int|string</span>
+				<span class="var-name">$user_id</span><span class="var-description">: An _optional_ property that identifies the user on the local system, that $request_token was used for.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Constructor.png" />
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">355</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create a user authorisation token</p>
+<p class="description"><p>This will be from data stored locally (e.g. in a database) for a previously aquired authorisation.</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../jabbakam/JK_UserAuthorisation.html#methodfromRequestToken">JK_UserAuthorisation::fromRequestToken()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">JK_UserAuthorisation</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$key</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$secret_key</span>, [<span class="var-type">int|string</span>&nbsp;<span class="var-name">$user_id</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$key</span><span class="var-description">: The public key part of the token.</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$secret_key</span><span class="var-description">: The secret key part of the token.</span>			</li>
+					<li>
+				<span class="var-type">int|string</span>
+				<span class="var-name">$user_id</span><span class="var-description">: An _optional_ property that identifies the user on the local system, e.g. the user.id from your user database table.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetKey" id="getKey"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getKey</span> (line <span class="line-number">415</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> The key for this authorisation token.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getKey
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetSecretKey" id="getSecretKey"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getSecretKey</span> (line <span class="line-number">420</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">return:</span> The secret key for this authorisation token.</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getSecretKey
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetUserId" id="getUserId"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">getUserId</span> (line <span class="line-number">430</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns a *local* identifier for the user this authorisation is for.</p>
+<p class="description"><p>This is NOT the user's Jabbakam user id.  May return NULL</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">mixed|null</span>
+		<span class="method-name">
+			getUserId
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 10 Feb 2010 18:51:24 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>

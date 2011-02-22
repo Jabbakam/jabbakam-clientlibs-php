@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class JK_TokenStorageMySQL</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name"><img src="../media/images/Class_logo.png"
+														alt=" Class"
+														title=" Class"
+														style="vertical-align: middle"> JK_TokenStorageMySQL</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../jabbakam/JK_TokenStorage.html">JK_TokenStorage</a></li>            </ul>
+        </p>
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Class that stores Jabbakam OAuth tokens in a mySQL database.</p>
+<p class="description"><p>Uses (and depends on) the mySQLi library.</p><p><div class="src-code"><ol><li><div class="src-line">&nbsp;<span class="src-id">CREATE&nbsp;TABLE&nbsp;</span>`jabbakam_tokens`&nbsp;<span class="src-sym">(</span></div></li>
+<li><div class="src-line">&nbsp;`type`&nbsp;<span class="src-id">ENUM</span><span class="src-sym">(&nbsp;</span><span class="src-str">'request'</span><span class="src-sym">,&nbsp;</span><span class="src-str">'access'&nbsp;</span><span class="src-sym">)&nbsp;</span><span class="src-id">NOT&nbsp;NULL&nbsp;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;`user_id`&nbsp;<span class="src-id">INT&nbsp;UNSIGNED&nbsp;NOT&nbsp;NULL&nbsp;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;`key`&nbsp;<span class="src-id">VARCHAR</span><span class="src-sym">(&nbsp;</span><span class="src-num">64&nbsp;</span><span class="src-sym">)&nbsp;</span><span class="src-id">NOT&nbsp;NULL&nbsp;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;`secret`&nbsp;<span class="src-id">CHAR</span><span class="src-sym">(&nbsp;</span><span class="src-num">32&nbsp;</span><span class="src-sym">)&nbsp;</span><span class="src-id">NOT&nbsp;NULL&nbsp;</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;`expires`&nbsp;<span class="src-id">INT&nbsp;UNSIGNED&nbsp;NOT&nbsp;NULL&nbsp;</span><span class="src-key">DEFAULT&nbsp;</span><span class="src-str">'0'&nbsp;</span><span class="src-id">COMMENT&nbsp;</span><span class="src-str">'UNIX&nbsp;time&nbsp;UTC'</span><span class="src-sym">,</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">PRIMARY&nbsp;KEY&nbsp;</span><span class="src-sym">(&nbsp;</span>`type`&nbsp;<span class="src-sym">,&nbsp;</span>`user_id`&nbsp;<span class="src-sym">)</span></div></li>
+<li><div class="src-line">&nbsp;<span class="src-sym">)&nbsp;</span><span class="src-id">ENGINE&nbsp;</span>=&nbsp;<span class="src-id">MYISAM&nbsp;CHARACTER&nbsp;SET&nbsp;utf8&nbsp;COLLATE&nbsp;utf8_general_ci&nbsp;COMMENT&nbsp;</span>=&nbsp;<span class="src-str">'Holds&nbsp;Jabbakam&nbsp;API&nbsp;OAuth&nbsp;tokens'</span><span class="src-sym">;</span></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<span class="src-id">ALTER&nbsp;TABLE&nbsp;</span>`jabbakam_tokens`&nbsp;<span class="src-id">ADD&nbsp;INDEX&nbsp;</span><span class="src-sym">(&nbsp;</span>`type`&nbsp;<span class="src-sym">,&nbsp;</span>`key`&nbsp;<span class="src-sym">)&nbsp;</span><span class="src-sym">;</span></div></li>
+</ol></div></p></p>
+	<ul class="tags">
+				<li><span class="field">link:</span> <a href="http://www.php.net/manual/en/book.mysqli.php">http://www.php.net/manual/en/book.mysqli.php</a></li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_jabbakam---tokenstoragemysql.class.php.html">/jabbakam/tokenstoragemysql.class.php</a> (line <span class="field">42</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																								<div class="var-title">
+					<img src="../media/images/Variable.png" alt=" " />
+					<span class="var-type">string</span>
+					<a href="#$table" title="details" class="var-name">$table</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																<div class="method-definition">
+					<img src="../media/images/Constructor.png" alt=" "/>
+											<span class="method-result">JK_TokenStorageMySQL</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$connection</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#cleanUserId" title="details" class="method-name">cleanUserId</a>
+											(<span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#fetchAccessToken" title="details" class="method-name">fetchAccessToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#fetchRequestToken" title="details" class="method-name">fetchRequestToken</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$key</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#storeAccessToken" title="details" class="method-name">storeAccessToken</a>
+											(<span class="var-type"><a href="../jabbakam/JK_UserAuthorisation.html">JK_UserAuthorisation</a></span>&nbsp;<span class="var-name">$token</span>)
+									</div>
+																<div class="method-definition">
+					<img src="../media/images/Method.png" alt=" "/>
+											<span class="method-result">void</span>
+										<a href="#storeRequestToken" title="details" class="method-name">storeRequestToken</a>
+											(<span class="var-type"><a href="../jabbakam/JK_RequestToken.html">JK_RequestToken</a></span>&nbsp;<span class="var-name">$request_token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$table" id="$table"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<img src="../media/images/Variable.png" />
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$table</span>
+			 = <span class="var-default">'`jabbakam_tokens`'</span>			(line <span class="line-number">45</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> The database table name enclosed in backtick quotes.</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Constructor.png" />
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">58</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates an initialises a mysql toekn storage  helper.</p>
+	<ul class="tags">
+				<li><span class="field">link:</span> <a href="http://www.php.net/manual/en/class.mysqli.php">http://www.php.net/manual/en/class.mysqli.php</a></li>
+				<li><span class="field">throws:</span> InvalidArgumentException If $connection is NULL or not an instance of MySQLi</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">JK_TokenStorageMySQL</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$connection</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">object</span>
+				<span class="var-name">&$connection</span><span class="var-description">: An instance of MySQLi.</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcleanUserId" id="cleanUserId"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">cleanUserId</span> (line <span class="line-number">75</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Cleans the user id for use in a query.</p>
+<p class="description"><p>If you need to use string user id's you should overide this method in a child class.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			cleanUserId
+		</span>
+					(<span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodfetchAccessToken" id="fetchAccessToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">fetchAccessToken</span> (line <span class="line-number">151</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			fetchAccessToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../jabbakam/JK_TokenStorage.html#methodfetchAccessToken">JK_TokenStorage::fetchAccessToken()</a></dt>
+						<dd>Fetches the authorisation token for a user.</dd>
+					</dl>
+			
+	</div>
+<a name="methodfetchRequestToken" id="fetchRequestToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">fetchRequestToken</span> (line <span class="line-number">110</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			fetchRequestToken
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$key</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$key</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../jabbakam/JK_TokenStorage.html#methodfetchRequestToken">JK_TokenStorage::fetchRequestToken()</a></dt>
+						<dd>Retreive a reqest token.</dd>
+					</dl>
+			
+	</div>
+<a name="methodstoreAccessToken" id="storeAccessToken"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">storeAccessToken</span> (line <span class="line-number">133</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			storeAccessToken
+		</span>
+					(<span class="var-type"><a href="../jabbakam/JK_UserAuthorisation.html">JK_UserAuthorisation</a></span>&nbsp;<span class="var-name">$token</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../jabbakam/JK_UserAuthorisation.html">JK_UserAuthorisation</a></span>
+				<span class="var-name">$token</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../jabbakam/JK_TokenStorage.html#methodstoreAccessToken">JK_TokenStorage::storeAccessToken()</a></dt>
+						<dd>Stores an access authorisation token.</dd>
+					</dl>
+			
+	</div>
+<a name="methodstoreRequestToken" id="storeRequestToken"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<img src="../media/images/Method.png" />
+		<span class="method-title">storeRequestToken</span> (line <span class="line-number">95</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			storeRequestToken
+		</span>
+					(<span class="var-type"><a href="../jabbakam/JK_RequestToken.html">JK_RequestToken</a></span>&nbsp;<span class="var-name">$request_token</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$user_id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../jabbakam/JK_RequestToken.html">JK_RequestToken</a></span>
+				<span class="var-name">$request_token</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$user_id</span>			</li>
+				</ul>
+		
+				<hr class="separator" />
+		<div class="notes">Implementation of:</div>
+			<dl>
+			<dt><a href="../jabbakam/JK_TokenStorage.html#methodstoreRequestToken">JK_TokenStorage::storeRequestToken()</a></dt>
+						<dd>Store a request token.</dd>
+					</dl>
+			
+	</div>
+						
+		</div>
+	</div>
+
+	
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 10 Feb 2010 18:51:26 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</p>
+	</div></body>
+</html>
