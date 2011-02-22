@@ -1,29 +1,23 @@
 <?php
-/**
- * Jabbakam API Example - request
- * Tries to request data from the API. 
- **/
 session_start();
-
 
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 
-require '../jabbakam.api.v1.php';
+require '../jabbakam/jabbakam.inc.php';
+
+$JK = Jabbakam::requestAuthorisation();
+print_r($JK);
 
 
-$JK_API = new JK_API();
-$request_token = $JK_API->getRequestToken();
-// save the temporary token secret
-$_SESSION['oauth_token_secret'] = $request_token['oauth_token_secret'];
-$url = $JK_API->getAuthorizeUrl($request_token['oauth_token'], 'http://test.jk.dev/client_libraries/PHP/examples/callback.php');
-?>
-<html>
-<head>
-<title>Demo of Jabbakam API PHP Client Library</title>
-</head>
-<body>
-<h1>You now have to go to Jabbakam to Login</h1>
-<p><a href="<?php echo $url;?>">Redirect to Authenticate</a></p>
-</body>
-</html>
+if( isset($JK->key) && isset($JK->secret) ) {
+   // save the token secret for use later
+   $_SESSION['oauth_token_secret'] = $JK->secret;
+
+   // NOTE: use $JK->send() instead, I am just outputting so I can see the constructed URL
+   $url = $JK->getAuthURL();
+   echo 'URL = <a href="'.$url.'">'.$url.'</a><BR>';
+}
+else {
+   echo "Failed to get request token<BR>";
+}

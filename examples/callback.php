@@ -1,31 +1,29 @@
 <?php
 session_start();
 
-
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
+require '../jabbakam/jabbakam.inc.php';
 
-require '../jabbakam.api.v1.php';
+if(isset($_GET['oauth_token'])) {
+   // construct a request token based on key passed, and secret saved
+   $key = $_GET['oauth_token'];
+   $secret = $_SESSION['oauth_token_secret'];
+   $JK_RequestToken = new JK_RequestToken($key, $secret);
 
-$oauth_token = isset($_GET['oauth_token']) ? $_GET['oauth_token'] : FALSE;
-if( ! $oauth_token) {
-   echo "No oauth token passed. oh no<BR>\n";
+   $User = JK_UserAuthorisation::fromRequestToken($JK_RequestToken);
+   print_r($User);
+
+   // save the access key and request
+   $_SESSION['oauth_token_key'] = $User->getKey();
+   $_SESSION['oauth_token_secret'] = $User->getSecretKey();
+   echo '<a href="./account.php">Use the API</a>';
+
+}
+else {
+   echo "no oauth_token returned<BR>\n";
    exit;
 }
 
 
-$JK_API = new JK_API($oauth_token, $_SESSION['oauth_token_secret']);
-$token = $JK_API->getAccessToken();
-echo "Token = <pre>"; print_r($token); echo "</pre>";
-$_SESSION['oauth_token'] = $token->key;
-$_SESSION['oauth_token_secret'] = $token->secret;
-?>
-<html>
-<head>
-<title>Demo of Jabbakam API PHP Client Library</title>
-</head>
-<body>
-<h1>Now, start using the API</h1>
-<p><a href="./account.php">Redirect to API requests</a></p>
-</body>
-</html>
+
