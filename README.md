@@ -1,9 +1,10 @@
 Jabbakam PHP Client Library
 ===========================
 
-This is the first hack-about of the PHP client library for v1 of the 
-Jabbakam API
+Client library to access the Jabbakam API.
 
-For more info about Jabbakam, please visit http://www.jabbakam.com
+See examples directory for OAuth usage.
 
-Developers site is coming soon.... I promise.
+For more information and to get your OAuth keys, visit
+http://developers.jabbakam.com
+
